@@ -1,7 +1,7 @@
 # SampleSwiftDataTransferrable
 
 
-This is a self contained sample project demonstrating how to implement drag and drop functionality in SwiftUI with SwiftData `PersistentModel` objects using the **swiftdata-transferrable** Swift Package found at: [https://github.com/Whiffer/swiftdata-transferrable](url)
+This is a self contained sample project demonstrating how to implement drag and drop functionality in SwiftUI with SwiftData `PersistentModel` objects using the **swiftdata-transferrable** Swift Package found at: [https://github.com/Whiffer/swiftdata-transferrable](https://github.com/Whiffer/swiftdata-transferrable)
 
 ## Using the SampleSwiftDataTransferrable project
 - Build and run this project in the Xcode debugger.
