@@ -16,15 +16,17 @@ struct ContentView: View {
     
     var body: some View {
         
-        VStack {
-            ItemsListView()
-            Target1View()
-            Target2View()
-        }
-        .toolbar {
-            ToolbarItem {
-                Button(action: addItem) {
-                    Label("Add Item", systemImage: "plus")
+        NavigationStack {
+            VStack {
+                ItemsListView()
+                Target1View()
+                Target2View()
+            }
+            .toolbar {
+                ToolbarItem {
+                    Button(action: addItem) {
+                        Label("Add Item", systemImage: "plus")
+                    }
                 }
             }
         }

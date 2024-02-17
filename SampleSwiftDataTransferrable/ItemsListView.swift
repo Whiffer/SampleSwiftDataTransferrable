@@ -24,7 +24,9 @@ struct ItemsListView: View {
                 Text("Tap the Toolbar + button above to create one or more Items to drag.")
                 Text("Select one or more Items from the List for dragging.")
                 Text("Drag the selected Item(s) to any Item in the List or one of the other targets below.")
-                Text("When targeting an Item in the List, `DropOperation` defaults to `.move` or it will change to `.copy` if pressing the Option key.")
+#if os(macOS)
+                Text("In macOS, when targeting an Item in the List, `DropOperation` defaults to `.move` or it will change to `.copy` if pressing the Option key.")
+#endif
             }
             Spacer()
         }
@@ -45,7 +47,11 @@ struct ItemsListView: View {
             } isTargeted: { targeted in
                 self.targetedItem = targeted ? item : nil
             } dropProposal: { _, _ in
+#if os(macOS)
                 let dropOperation = NSEvent.modifierFlags.contains(NSEvent.ModifierFlags.option) ? DropOperation.copy : DropOperation.move
+#else
+                let dropOperation = DropOperation.move
+#endif
                 self.dropProposal = DropProposal(operation: dropOperation)
                 return self.dropProposal
             }
