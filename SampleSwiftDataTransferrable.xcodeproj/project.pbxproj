@@ -22,6 +22,7 @@
 
 /* Begin PBXFileReference section */
 		130AD7AD2AE35061000ADD27 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		131C4BDF2B7FBD2F0070DA4F /* swiftdata-transferrable */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "swiftdata-transferrable"; path = "../swiftdata-transferrable"; sourceTree = "<group>"; };
 		135420BF2AE2034500F95FE5 /* SampleSwiftDataTransferrable.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SampleSwiftDataTransferrable.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		135420C22AE2034500F95FE5 /* SampleSwiftDataTransferrableApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleSwiftDataTransferrableApp.swift; sourceTree = "<group>"; };
 		135420C42AE2034500F95FE5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -51,6 +52,7 @@
 		135420B62AE2034500F95FE5 = {
 			isa = PBXGroup;
 			children = (
+				131C4BDF2B7FBD2F0070DA4F /* swiftdata-transferrable */,
 				135420D92AE34ABB00F95FE5 /* LICENSE.txt */,
 				135420DA2AE34ABB00F95FE5 /* README.md */,
 				135420C12AE2034500F95FE5 /* SampleSwiftDataTransferrable */,
@@ -122,7 +124,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1500;
-				LastUpgradeCheck = 1500;
+				LastUpgradeCheck = 1520;
 				TargetAttributes = {
 					135420BE2AE2034500F95FE5 = {
 						CreatedOnToolsVersion = 15.0;
@@ -215,6 +217,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -276,6 +279,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -303,7 +307,9 @@
 				CODE_SIGN_ENTITLEMENTS = SampleSwiftDataTransferrable/SampleSwiftDataTransferrable.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"SampleSwiftDataTransferrable/Preview Content\"";
+				DEVELOPMENT_TEAM = 64WN437W3Z;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SampleSwiftDataTransferrable/Info.plist;
@@ -340,7 +346,9 @@
 				CODE_SIGN_ENTITLEMENTS = SampleSwiftDataTransferrable/SampleSwiftDataTransferrable.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"SampleSwiftDataTransferrable/Preview Content\"";
+				DEVELOPMENT_TEAM = 64WN437W3Z;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SampleSwiftDataTransferrable/Info.plist;
@@ -398,7 +406,7 @@
 			repositoryURL = "https://github.com/Whiffer/swiftdata-transferrable";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
+				minimumVersion = 2.0.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */

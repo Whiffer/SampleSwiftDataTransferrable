@@ -16,11 +16,11 @@ struct Target1View: View {
         HStack {
             VStack(alignment: .leading) {
                 Text("Drop one or more Items here.")
-                Text("The default `DropOperation` is `.copy`")
                 Text("Does not show targeting. Always shows gray border whether targeted or not.")
            }
             Spacer()
         }
+        .contentShape(Rectangle())
         .padding()
         .border(.gray, width: 1)
         .dropDestination(for: Item.self) { items, _ in

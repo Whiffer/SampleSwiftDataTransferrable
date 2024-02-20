@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftData
 
 import SwiftDataTransferrable
 
@@ -18,30 +19,24 @@ struct Target2View: View {
         HStack {
             VStack(alignment: .leading) {
                 Text("Drop only one Item here.")
-                Text("Shows a blue border when targeted with a valid drop.")
-                Text("`DropOperation` is `.copy` if dragging only one Item.")
-                Text("`DropOperation` is `.forbidden` if dropping more than one Item.")
+                Text("Shows a blue border when targeted.")
             }
             Spacer()
         }
+        .contentShape(Rectangle())
         .padding()
         .border(.blue, width: (self.isTargeted ? 1 : 0))
         .dropDestination(for: Item.self) { items, _ in
-            if let item = items.first {
-                print("\(item.timestamp) dropped on Target 2")
+            if items.count == 1 {
+                for item in items {
+                    print("\(item.timestamp) dropped on Target 2")
+                }
                 return true
             } else {
                 return false
             }
-        } isTargeted: { targeted in
-            self.isTargeted = targeted
-        } dropProposal: { items, _ in
-            // DropProposal operation will be .forbidden if dragging more than one Item
-            if items.count > 1 {
-                self.isTargeted = false
-                return DropProposal(operation: DropOperation.forbidden)
-            }
-            return DropProposal(operation: DropOperation.copy)
+        } isTargeted: { isTargeted in
+            self.isTargeted = isTargeted
         }
     }
 }

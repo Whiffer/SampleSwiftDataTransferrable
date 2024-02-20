@@ -15,45 +15,47 @@ struct ItemsListView: View {
     @Query private var items: [Item]
     @State private var selection = Set<Item>()
     @State private var targetedItem: Item?
-    @State private var dropProposal = DropProposal(operation: .copy)
-
+    
     var body: some View {
         
         HStack {
             VStack(alignment: .leading) {
                 Text("Tap the Toolbar + button above to create one or more Items to drag.")
                 Text("Select one or more Items from the List for dragging.")
-                Text("Drag the selected Item(s) to any Item in the List or one of the other targets below.")
-#if os(macOS)
-                Text("In macOS, when targeting an Item in the List, `DropOperation` defaults to `.move` or it will change to `.copy` if pressing the Option key.")
-#endif
+                Text("Results of the drops will be printed in the debugging console.")
+                Text("Drag the selected Item(s) onto one of the two targets below the List (macOS and iOS).")
+                Text("Drag the selected Item(s) above or below any Item in the List to allow reordering of the List (macOS only).")
+                Text("Drag the selected Item(s) onto any Item in the List (macOS only).")
             }
             Spacer()
         }
         .padding()
-        List(self.items, id: \.self, selection: $selection) { item in
-            HStack {
-                Text(item.timestamp.description)
-                Spacer()
-            }
-            .opacity(item == targetedItem ? 0.5 : 1.0)
-            .draggable(item)
-            .dropDestination(for: Item.self) { draggedItems, _ in
-                let targetItem = item   // for clarification
-                for draggedItem in draggedItems {
-                    print("\(draggedItem.timestamp) \(dropProposal.operation == .move ? "moved" : "copied") to: \(targetItem.timestamp)")
+        List(selection: $selection) {
+            ForEach(self.items, id: \.self) { item in
+                HStack {
+                    Text(item.timestamp.description)
+                    Spacer()
                 }
-                return true
-            } isTargeted: { targeted in
-                self.targetedItem = targeted ? item : nil
-            } dropProposal: { _, _ in
-#if os(macOS)
-                let dropOperation = NSEvent.modifierFlags.contains(NSEvent.ModifierFlags.option) ? DropOperation.copy : DropOperation.move
-#else
-                let dropOperation = DropOperation.move
-#endif
-                self.dropProposal = DropProposal(operation: dropOperation)
-                return self.dropProposal
+                .contentShape(Rectangle())
+                .opacity(item == targetedItem ? 0.5 : 1.0)
+                .draggable(item)
+                .dropDestination(for: Item.self) { droppedItems, _ in
+                    if droppedItems.count == 1 {
+                        for droppedItem in droppedItems {
+                            print("\(droppedItem.timestamp) dropped on List Row \(item.timestamp)")
+                        }
+                        return true
+                    } else {
+                        return false
+                    }
+                } isTargeted: { isTargeted in
+                    self.targetedItem = isTargeted ? item : nil
+                }
+            }
+            .dropDestination(for: Item.self) { items, offset in
+                for item in items {
+                    print("\(item.timestamp) inserted at: \(offset)")
+                }
             }
         }
     }
