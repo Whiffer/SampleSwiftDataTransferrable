@@ -22,7 +22,6 @@
 
 /* Begin PBXFileReference section */
 		130AD7AD2AE35061000ADD27 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		131C4BDF2B7FBD2F0070DA4F /* swiftdata-transferrable */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "swiftdata-transferrable"; path = "../swiftdata-transferrable"; sourceTree = "<group>"; };
 		135420BF2AE2034500F95FE5 /* SampleSwiftDataTransferrable.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SampleSwiftDataTransferrable.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		135420C22AE2034500F95FE5 /* SampleSwiftDataTransferrableApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleSwiftDataTransferrableApp.swift; sourceTree = "<group>"; };
 		135420C42AE2034500F95FE5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -52,7 +51,6 @@
 		135420B62AE2034500F95FE5 = {
 			isa = PBXGroup;
 			children = (
-				131C4BDF2B7FBD2F0070DA4F /* swiftdata-transferrable */,
 				135420D92AE34ABB00F95FE5 /* LICENSE.txt */,
 				135420DA2AE34ABB00F95FE5 /* README.md */,
 				135420C12AE2034500F95FE5 /* SampleSwiftDataTransferrable */,
