@@ -10,7 +10,7 @@ This is a self contained sample project demonstrating how to implement drag and 
 - Results of the drops will be printed in the debugging console.
 
 ### ItemsListView
-- Drag the selected Item(s) above or below any Item in the List to allow reordering of the List (macOS only).
+- Drag the selected Item(s) above or below any Item in the List to allow reordering of the List.
 - Drag the selected Item(s) onto any Item in the List (macOS only).
 ### Target1View
 - Drag one or more Items from the List to be dropped here (macOS and iOS).

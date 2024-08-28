@@ -7,28 +7,20 @@
 
 import SwiftUI
 import SwiftData
+import SwiftDataTransferrable
 
 @main
 struct SampleSwiftDataTransferrableApp: App {
-    var sharedModelContainer: ModelContainer = {
-        let schema = Schema([
-            Item.self,
-        ])
-        let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
-
-        do {
-            return try ModelContainer(for: schema, configurations: [modelConfiguration])
-        } catch {
-            fatalError("Could not create ModelContainer: \(error)")
-        }
-    }()
+    
+    let schema = Schema([
+        Item.self,
+    ])
 
     var body: some Scene {
-        WindowGroup {
-            ContentView()
-                .swiftDataTransferrable(exportedUTType: "com.YourTeam.persistentModelID",
-                                        modelContext: sharedModelContainer.mainContext)
+        SwiftDataTransferrableScene(schema: schema, exportedUTType: "com.YourTeam.persistentModelID") {
+            WindowGroup {
+                ContentView()
+            }
         }
-        .modelContainer(sharedModelContainer)
     }
 }

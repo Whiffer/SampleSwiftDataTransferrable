@@ -404,7 +404,7 @@
 			repositoryURL = "https://github.com/Whiffer/swiftdata-transferrable";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 2.0.0;
+				minimumVersion = 3.0.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */

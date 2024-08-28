@@ -52,11 +52,18 @@ struct ItemsListView: View {
                     self.targetedItem = isTargeted ? item : nil
                 }
             }
+            .onMove(perform: onMove )
             .dropDestination(for: Item.self) { items, offset in
                 for item in items {
                     print("\(item.timestamp) inserted at: \(offset)")
                 }
             }
+        }
+    }
+    
+    private func onMove(indexSet: IndexSet, to: Int) {
+        for index in indexSet {
+            print("\(self.items[index].timestamp) moved to: \(to)")
         }
     }
     
