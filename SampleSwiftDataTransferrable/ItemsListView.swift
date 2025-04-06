@@ -24,7 +24,7 @@ struct ItemsListView: View {
                 Text("Select one or more Items from the List for dragging.")
                 Text("Results of the drops will be printed in the debugging console.")
                 Text("Drag the selected Item(s) onto one of the two targets below the List (macOS and iOS).")
-                Text("Drag the selected Item(s) above or below any Item in the List to allow reordering of the List (macOS only).")
+                Text("Drag the selected Item(s) above or below any Item in the List to allow reordering of the List (macOS only and iOS).")
                 Text("Drag the selected Item(s) onto any Item in the List (macOS only).")
             }
             Spacer()
@@ -52,21 +52,27 @@ struct ItemsListView: View {
                     self.targetedItem = isTargeted ? item : nil
                 }
             }
-            .onMove(perform: onMove )
+#if os(iOS)
+            .onMove(perform: onMove )   // If this View Modifier is present in macOS, attempts to reorder the list will fail.
+#endif
+#if os(macOS)
             .dropDestination(for: Item.self) { items, offset in
                 for item in items {
                     print("\(item.timestamp) inserted at: \(offset)")
                 }
             }
+#endif
         }
     }
     
+#if os(iOS)
     private func onMove(indexSet: IndexSet, to: Int) {
         for index in indexSet {
             print("\(self.items[index].timestamp) moved to: \(to)")
         }
     }
-    
+#endif
+
 }
 
 #Preview {
